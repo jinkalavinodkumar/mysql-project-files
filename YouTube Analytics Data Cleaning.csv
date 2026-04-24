@@ -1,0 +1,71 @@
+﻿video_id,channel_name,title,category,views,likes,dislikes,comments,publish_date,city,status
+9001,TechWorld,Roadmap to Learn SQL,Education,50000,2500,100,300,01-01-2024,Hyderabad,Active
+9002,CookWithMe,Tasty Biryani Recipe,Food,30000,1800,50,200,02-01-2024,hyd,active
+9003,GamingZone,Top 10 Games,Gaming,abc,2000,100,150,03-Jan-24,Mumbai,Active
+9004,NULL,NULL,Music,20000,NULL,80,120,04-01-2024,BLR,Inactive
+9005,FitLife,Workout Tips,Fitness,40000,2200,70,250,05-01-2024,Hyderabad,Active
+9006,TravelNow,Goa Vlog,Travel,35000,1900,60,180,06-01-2024,Chennai,Active
+9007,TechWorld,Python Basics,Education,45000,2300,90,220,07-01-2024,Chennai,Active
+9008,GamingZone,PUBG Highlights,Gaming,60000,3000,150,400,08-01-2024,Mumbai,active
+9009,CookWithMe,Pasta Recipe,Food,-20000,1500,40,160,09-01-2024,Mumbai,Active
+9010,FunTime,Comedy Skit,Entertainment,25000,1200,abc,140,10-01-2024,mumbai,Active
+9011,TechWorld,Roadmap to Learn SQL,Education,50000,2500,100,300,01-01-2024,Hyderabad,Active
+9012,MusicHub,Top Songs 2024,Music,70000,3500,200,500,11-01-2024,Hyderabad,Active
+9013,empty,NULL,NULL,abc,NULL,NULL,NULL,future_date,unknown,???
+9014,Tech@Guru,Data Science Intro,Education,30000,1800,70,210,13-01-2024,Hyderabad,Active
+9015,Cook!,Snacks Recipe,Food,20000,1200,60,150,14-01-2024,Hyderabad,Active
+9016,TravelNow,Delhi Tour,Travel,28000,1600,50,170,15-01-2024,hyd,active
+9017,GamingZone,Free Fire Tips,Gaming,50000,2600,110,300,16-01-2024,Bangalore,Active
+9018,FitLife,Yoga Session,Fitness,22000,1400,40,130,17-01-2024,BLR,Active
+9019,NULL,NULL,Music,15000,900,30,100,18-01-2024,Bangalore,Inactive
+9020,FunTime,Prank Video,Entertainment,30000,1800,80,200,19-01-2024,Chennai,Active
+9021,NULL,abc,???,-1000,???,???,???,99-99-2024,???,???
+9022, ,-123,NA,0,NA,NA,NA,00-00-0000,delhi,NA
+9023,TechWorld,Java Tutorial,Education,45000,2200,90,250,20-01-2024,Delhi,Active
+9024,MusicHub,New Album,Music,60000,3000,150,350,21-01-2024,Delhi,Active
+9025,GamingZone,COD Gameplay,Gaming,55000,2800,120,320,22-01-2024,Delhi,Active
+9026,FitLife,Diet Plan,Fitness,25000,1300,60,140,23-01-2024,Delhi,Active
+9027,TravelNow,Kerala Vlog,Travel,NULL,1500,70,180,NULL,Delhi,Active
+9028,CookWithMe,Dessert Recipe,Food,NULL,NULL,NULL,NULL,NULL,Delhi,Pending
+9029,FunTime,Standup Comedy,Entertainment,32000,2000,90,210,24-01-2024,Delhi,Active
+9030,TechWorld,Web Dev Tutorial,Education,48000,2400,100,260,25-01-2024,Delhi,Active
+9031,GamingZone,Minecraft Build,Gaming,52000,2700,110,310,26-01-2024,Hyderabad,Active
+9032,FitLife,Gym Routine,Fitness,30000,1800,80,200,27-01-2024,Hyderabad,Active
+9033,CookWithMe,Healthy Salad,Food,20000,1200,50,150,28-01-2024,Hyderabad,Active
+9034,TravelNow,Manali Trip,Travel,35000,1900,70,220,29-01-2024,Hyderabad,Active
+9035,MusicHub,Live Concert,Music,65000,3300,180,400,30-01-2024,Hyderabad,Active
+9036,FunTime,Funny Moments,Entertainment,28000,1500,60,170,31-01-2024,Hyderabad,Active
+9037,TechWorld,React Tutorial,Education,47000,2300,100,250,01-02-2024,Hyderabad,Active
+9038,GamingZone,Valorant Tips,Gaming,53000,2600,120,300,02-02-2024,Hyderabad,Active
+9039,FitLife,Cardio Workout,Fitness,26000,1400,60,160,03-02-2024,Hyderabad,Active
+9040,CookWithMe,Breakfast Ideas,Food,22000,1300,50,150,04-02-2024,Hyderabad,Active
+9041,TravelNow,Shimla Vlog,Travel,34000,1800,70,210,05-02-2024,Hyderabad,Active
+9042,MusicHub,Top Hits,Music,62000,3100,160,380,06-02-2024,hyd,active
+9043,GamingZone,abc987,Gaming,50000,2500,100,300,07-Feb-24,Hyderabad,Pending
+9044,FunTime,Meme Compilation,Entertainment,30000,1700,80,200,08-02-2024,Hyderabad,Active
+9045,FitLife,Weight Loss,Fitness,27000,1500,70,180,09-02-2024,Bangalore,Active
+9046,NULL,NULL,Music,20000,1000,40,120,10-02-2024,BLR,Inactive
+9047,TechWorld,Test Video,Education,0,0,0,0,11-02-2024,Bangalore,Active
+9048,CookWithMe,Lunch Recipe,Food,24000,1400,60,160,12-02-2024,Chennai,active
+9049,TravelNow,Beach Vlog,Travel,30000,1600,70,180,13-02-2024,Chennai,Active
+9050,FunTime,Short Comedy,Entertainment,NULL,1200,50,150,NULL,Chennai,Active
+9051,empty,NULL,NULL,abc,NULL,NULL,NULL,future_date,???,???
+9052, ,-123,NA,-5,NA,NA,NA,99-99-2024,delhi,NA
+9053,TechWorld,AI Basics,Education,50000,2500,100,300,14-02-2024,Delhi,Active
+9054,MusicHub,New Song,Music,60000,3000,150,350,15-02-2024,Delhi,Active
+9055,GamingZone,Fortnite Tips,Gaming,55000,2800,120,320,16-02-2024,Delhi,Active
+9056,FitLife,Meditation,Fitness,25000,1300,60,140,17-02-2024,Delhi,Active
+9057,CookWithMe,Street Food,Food,NULL,1500,70,180,NULL,Delhi,Active
+9058,TravelNow,Desert Safari,Travel,NULL,NULL,NULL,NULL,NULL,Delhi,Pending
+9059,FunTime,Comedy Clips,Entertainment,32000,2000,90,210,18-02-2024,Delhi,Active
+9060,TechWorld,NodeJS Tutorial,Education,48000,2400,100,260,19-02-2024,Delhi,Active
+9061,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL
+9062,TestUser,123,Test,Test,Test,Test,Test,Test,Test,Test
+9063,Dummy,0,NA,NA,NA,NA,NA,NA,NA,0
+9064,Unknown,-1,???,???,???,???,???,???,???,-999
+9065,TechWorld,SQL Advanced,Education,52000,2600,110,320,01-03-2024,Hyderabad,Active
+9066,CookWithMe,Quick Meals,Food,30000,1800,70,200,02-03-2024,Hyderabad,Active
+9067,GamingZone,Apex Legends,Gaming,54000,2700,120,310,03-03-2024,Hyderabad,Active
+9068,FitLife,Home Workout,Fitness,26000,1400,60,160,04-03-2024,Hyderabad,Active
+9069,TravelNow,Hill Station,Travel,35000,1900,70,220,05-03-2024,Hyderabad,Active
+9070,MusicHub,Indie Songs,Music,62000,3100,160,380,06-03-2024,Hyderabad,Active
