@@ -1,0 +1,376 @@
+create database pj;
+
+use pj;
+
+show tables;
+
+
+alter table `youtube analytics data cleaning` rename to `yt`;
+
+-- see the table
+
+select * from yt; 
+
+desc yt;
+
+alter table yt rename column `ï»¿video_id` to video_id;
+
+select * from yt;
+
+-- count number of rows
+
+select count(*) as number_of_rows from yt;
+
+
+-- 1.data explore
+
+-- check duplicate values
+
+desc yt;
+
+select video_id,count(*) 
+from yt
+group by video_id
+having count(*) > 1;
+
+select channel_name,count(*) 
+from yt
+group by channel_name
+having count(*) > 1;
+
+-- check number of  nulls / empty in columns
+
+select * from yt where title is null;
+
+select * from yt
+where title ='';
+
+SELECT 
+  SUM(video_id IS NULL) AS null_video_id,
+
+  SUM(channel_name IS NULL OR TRIM(channel_name) = '') AS null_channel_name,
+
+  SUM(title IS NULL OR TRIM(title) = '') AS null_title,
+
+  SUM(category IS NULL OR TRIM(category) = '') AS null_category,
+
+  SUM(views IS NULL OR TRIM(views) = '') AS null_views,
+
+  SUM(likes IS NULL OR TRIM(likes) = '') AS null_likes,
+
+  SUM(dislikes IS NULL) AS null_dislikes,
+
+  SUM(comments IS NULL) AS null_comments,
+
+  SUM(publish_date IS NULL OR TRIM(publish_date) = '') AS null_publish_date,
+
+  SUM(city IS NULL OR TRIM(city) = '') AS null_city,
+
+  SUM(status IS NULL OR TRIM(status) = '') AS null_status
+
+FROM yt;
+
+
+SELECT *
+FROM yt
+WHERE 
+    video_id IS NULL
+ OR channel_name IS NULL OR TRIM(channel_name)=''
+ OR title IS NULL OR TRIM(title)=''
+ OR category IS NULL OR TRIM(category)=''
+ OR views IS NULL OR TRIM(views)=''
+ OR likes IS NULL OR TRIM(likes)=''
+ OR dislikes IS NULL
+ OR comments IS NULL
+ OR publish_date IS NULL OR TRIM(publish_date)=''
+ OR city IS NULL OR TRIM(city)=''
+ OR status IS NULL OR TRIM(status)='';
+ 
+ 
+-- video_id null
+UPDATE yt
+SET 
+  channel_name = 'Unknown'
+WHERE channel_name IS NULL OR TRIM(channel_name)='';
+
+select * from yt;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE yt
+SET
+  channel_name = CASE 
+      WHEN channel_name IS NULL OR TRIM(channel_name) = '' THEN 'Unknown'
+      ELSE channel_name END,
+
+  title = CASE 
+      WHEN title IS NULL OR TRIM(title) = '' THEN 'Unknown'
+      ELSE title END,
+
+  category = CASE 
+      WHEN category IS NULL OR TRIM(category) = '' THEN 'Unknown'
+      ELSE category END,
+
+  views = CASE 
+      WHEN views IS NULL OR TRIM(views) = '' THEN '0'
+      ELSE views END,
+
+  likes = CASE 
+      WHEN likes IS NULL OR TRIM(likes) = '' THEN '0'
+      ELSE likes END,
+
+  dislikes = CASE 
+      WHEN dislikes IS NULL THEN 0
+      ELSE dislikes END,
+
+  comments = CASE 
+      WHEN comments IS NULL THEN 0
+      ELSE comments END,
+
+  publish_date = CASE 
+      WHEN publish_date IS NULL OR TRIM(publish_date) = '' THEN '1970-01-01'
+      ELSE publish_date END,
+
+  city = CASE 
+      WHEN city IS NULL OR TRIM(city) = '' THEN 'Unknown'
+      ELSE city END,
+
+  status = CASE 
+      WHEN status IS NULL OR TRIM(status) = '' THEN 'Unknown'
+      ELSE status END;
+      
+
+
+select * from yt;
+
+
+desc yt;
+
+
+
+select * from yt;
+
+desc yt;
+
+
+select * from yt;
+
+SELECT video_id, channel_name, views, likes, dislikes, comments
+FROM yt
+WHERE views NOT REGEXP '^[0-9]+$'
+OR likes NOT REGEXP '^[0-9]+$'
+OR dislikes NOT REGEXP '^[0-9]+$'
+OR comments NOT REGEXP '^[0-9]+$';
+
+SELECT video_id, views, likes, dislikes, comments
+FROM yt
+WHERE TRIM(views) LIKE '-%'
+OR TRIM(likes) LIKE '-%'
+OR TRIM(dislikes) LIKE '-%';
+
+
+-- '9013', 'empty', 'Unknown', 'Unknown', 'abc', '0', '0', '0', 'future_date', 'unknown', '???'
+-- replace symbols with empty string ''
+
+delete from
+yt
+where channel_name = 'empty';
+
+UPDATE yt
+SET channel_name = REGEXP_REPLACE(channel_name, '[^a-zA-Z0-9 ]', '');
+
+-- replace alphabet with null in views
+
+UPDATE yt
+SET views = NULL
+WHERE views NOT REGEXP '^-?[0-9]+$';
+
+ALTER TABLE yt MODIFY views BIGINT;
+
+
+update yt
+set views = 0
+where views < 0;
+
+select * from yt;
+
+
+
+
+
+
+
+select * from yt;
+
+
+desc yt;
+
+
+-- date yyyy-mm-dd
+
+desc yt;
+
+-- 1. Convert DD-MM-YYYY → YYYY-MM-DD-- 
+UPDATE yt
+SET publish_date = DATE_FORMAT(
+                     STR_TO_DATE(publish_date,'%d-%m-%Y'),
+                     '%Y-%m-%d'
+                  )
+WHERE publish_date LIKE '__-__-____';
+
+select * from yt;
+
+-- 2. Convert DD-Mon-YY → YYYY-MM-DD
+UPDATE yt
+SET publish_date = DATE_FORMAT(
+                     STR_TO_DATE(publish_date,'%d-%b-%y'),
+                     '%Y-%m-%d'
+                  )
+WHERE publish_date LIKE '__-___-__';
+
+
+select * from yt;
+
+UPDATE yt
+SET publish_date = NULL
+WHERE publish_date = '1970-01-01';
+
+ALTER TABLE yt;
+
+select * from yt;
+
+UPDATE yt
+SET city = CASE LOWER(TRIM(city))
+    WHEN 'hyd' THEN 'Hyderabad'
+    WHEN 'blr' THEN 'Bengaluru'
+    WHEN 'bng' THEN 'Bengaluru'
+    WHEN 'del' THEN 'Delhi'
+    WHEN 'mum' THEN 'Mumbai'
+    WHEN 'chn' THEN 'Chennai'
+    ELSE city
+END;
+
+MODIFY publish_date DATE;
+
+desc  yt;
+
+
+select * from yt;
+
+SELECT DISTINCT status FROM yt;
+
+select distinct channel_name from yt;
+
+UPDATE yt
+SET status = CASE LOWER(TRIM(status))
+    WHEN 'active' THEN 'Active'
+    WHEN 'inactive' THEN 'Inactive'
+    WHEN 'pending' THEN 'Pending'
+    WHEN 'unknown' THEN 'Unknown'
+    ELSE 'Unknown'
+END;
+
+select * from yt;
+
+update yt
+set views = 0
+where views is null;
+
+select * from yt;
+
+select * from yt
+where category = 'Unknown';
+
+select * from yt;
+
+delete from yt
+where publish_date is null;
+
+
+
+
+delete from yt
+where video_id = '9061';
+
+
+select * from yt
+where video_id = 9061;
+
+
+delete from yt
+where video_id = 9061;
+
+select * from yt;
+
+DELETE FROM yt
+WHERE video_id = 9011;
+
+DELETE FROM yt
+WHERE channel_name = 'Unknown' AND title = 'Unknown';
+
+UPDATE yt
+SET city = 'Bengaluru'
+WHERE city = 'Bangalore';
+
+DELETE FROM yt
+WHERE title REGEXP '^[a-zA-Z]+[0-9]+$';
+
+select * from yt;
+
+desc yt;
+
+CREATE TABLE yt_clean (
+    video_id INT,
+    channel_name TEXT,
+    title TEXT,
+    category TEXT,
+    views BIGINT,
+    likes INT,
+    dislikes INT,
+    comments INT,
+    publish_date DATE,
+    city TEXT,
+    status TEXT
+);
+
+desc yt_clean;
+
+INSERT INTO yt_clean (
+    video_id, channel_name, title, category,
+    views, likes, dislikes, comments,
+    publish_date, city, status
+)
+SELECT 
+    video_id,
+    TRIM(channel_name),
+    TRIM(title),
+    TRIM(category),
+    views,
+    likes,
+    dislikes,
+    comments,
+    publish_date,
+    CASE 
+        WHEN city = 'Bangalore' THEN 'Bengaluru'
+        ELSE TRIM(city)
+    END,
+    CASE 
+        WHEN LOWER(status) = 'active' THEN 'Active'
+        WHEN LOWER(status) = 'inactive' THEN 'Inactive'
+        ELSE 'Pending'
+    END
+FROM yt
+WHERE 
+    video_id IS NOT NULL
+AND TRIM(channel_name) NOT IN ('', 'Unknown')
+AND TRIM(title) NOT IN ('', 'Unknown');
+
+select * from yt_clean;
+
+SELECT 
+    COUNT(*)
+FROM
+    yt_clean;
+
+
+
